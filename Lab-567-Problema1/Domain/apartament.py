@@ -7,12 +7,7 @@ def creeaza_cheltuiala(numar, suma, data, tip):
     :param tip: string
     :return: returneaza un dictionar cu atributele date
     '''
-    return {
-        'numar' : numar,
-        'suma' : suma,
-        'data' : data,
-        'tip' : tip
-    }
+    return [numar,suma,data,tip]
 
 
 def get_numar(apartament):
@@ -21,7 +16,7 @@ def get_numar(apartament):
     :param apartament: dictionar ce contine o cheltuiala
     :return: numarul apartamentului
     '''
-    return apartament['numar']
+    return apartament[0]
 
 
 def get_suma(apartament):
@@ -30,7 +25,7 @@ def get_suma(apartament):
     :param apartament: dictionar ce contine o cheltuiala
     :return: suma cheltuielii
     '''
-    return apartament['suma']
+    return apartament[1]
 
 
 def get_data(apartament):
@@ -39,7 +34,7 @@ def get_data(apartament):
     :param apartament: dictionar ce contine o cheltuiala
     :return: data in care s-a efectuat cheltuiala
     '''
-    return apartament['data']
+    return apartament[2]
 
 
 def get_tip(apartament):
@@ -48,10 +43,14 @@ def get_tip(apartament):
     :param apartament: dictionar ce contine o cheltuiala
     :return: tip-ul cheltuielii
     '''
-    return apartament['tip']
+    return apartament[3]
 
 
 def to_string(apartament):
     return "Numar: {}, suma: {}, data: {}, tip:{} ".format(
         get_numar(apartament), get_suma(apartament), get_data(apartament), get_tip(apartament)
     )
+
+
+
+

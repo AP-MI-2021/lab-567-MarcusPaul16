@@ -35,15 +35,15 @@ def menu(lista):
                 numar = input("Scrieti numarul apartamentului:")
                 lista = stergere_cheltuiala(int(numar), lista)
             elif optiune == '2':
-                ad = input("Scrieti datele in ordinea: numar,suma,data,tip: ").split(',')
+                ad = input("Scrieti datele in ordinea: numar,suma,data,tip, scrise cu virgula intre ele: ").split(',')
                 lista = adaugare_cheltuiala(int(ad[0]),int(ad[1]),ad[2],ad[3],lista)
             elif optiune == '3':
-                print("Completati datele cheltuielii pe care doriti sa o modificati")
                 numar = int(input("Scrieti numarul apartamentului"))
-                suma = int(input("Scrieti suma cheltuielii"))
-                data = input("Scrieti data in care s-a efectuat cheltuiala")
-                tip = input("Scrieti tipul cheltuielii")
-                lista = modificare_cheltuiala(numar, suma, data, tip, lista)
+                print("Scrieti valorile datelor pe care le modificati")
+                suma = int(input("Scrieti suma"))
+                data = input("Scrieti data sub forma DD.MM.YYYY")
+                tip = input("Scrieti tipul")
+                lista = modificare_cheltuiala(numar,suma,data,tip, lista)
             else: print("Comanda inexistenta")
         elif alegere == '2':
             numar = int(input("Scrieti numarul apartamentului"))

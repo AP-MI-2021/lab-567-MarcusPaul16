@@ -1,4 +1,5 @@
-from Domain.apartament import creeaza_cheltuiala, to_string
+from Domain.apartament import creeaza_cheltuiala, to_string, get_numar
+
 
 def adaugare_cheltuiala(numar, suma, data, tip, lista):
     '''
@@ -22,7 +23,7 @@ def stergere_cheltuiala(numar, lista):
     return [x for x in lista if get_numar(x) != numar]
 
 
-def modificare_cheltuiala(numar, suma, data, tip, lista):
+def modificare_cheltuiala(numar,suma,data,tip, lista):
     '''
     modifica o cheltuiala, prin suprascrierea acesteia
     :param numar: numarul apartamentului
@@ -34,8 +35,8 @@ def modificare_cheltuiala(numar, suma, data, tip, lista):
     '''
     listanoua = []
     for cheltuiala in lista:
-        cheltuiala_noua = creeaza_cheltuiala(numar, suma, data, tip)
-        if to_string(cheltuiala) == to_string(cheltuiala_noua):
+        if cheltuiala[0] == numar:
+            cheltuiala_noua = creeaza_cheltuiala(numar, suma, data, tip)
             listanoua.append(cheltuiala_noua)
         else:
             listanoua.append(cheltuiala)
