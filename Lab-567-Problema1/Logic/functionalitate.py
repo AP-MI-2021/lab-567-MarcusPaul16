@@ -20,7 +20,7 @@ def adunare_valoare(valoare, data,lista):
     '''
     for cheltuiala in lista:
         if get_data(cheltuiala) == data:
-            cheltuiala['suma'] += int(valoare)
+            cheltuiala[2] += int(valoare)
     return lista
 
 
