@@ -24,9 +24,10 @@ def adaugare_cheltuiala(id, numar, suma, data, tip, lista):
     :param tip: string
     :return: returneaza o noua lista in care se afla si noua cheltuiala, pe langa cele existente
     '''
-    if get_by_id(id,lista) is not False:
+    if suma < 0:
+        raise ValueError("Valoarea este negativa")
+    elif get_by_id(id,lista) is not False:
         raise ValueError("Id-ul exista deja")
-        return lista
     else:
         cheltuiala = creeaza_cheltuiala(id, numar, suma, data, tip)
         return lista + [cheltuiala]
@@ -55,6 +56,10 @@ def modificare_cheltuiala(id, numar, suma, data,tip, lista):
     '''
     if get_by_id(id, lista) is False:
         raise ValueError("Id-ul nu exista")
+    if suma < 0:
+        raise ValueError("Suma este negativa")
+    if tip != 'canal' and tip !='alte cheltuieli' and tip!=' intretinere':
+        raise ValueError("Nu exista acest tip de cheltuiala")
     listanoua = []
     for cheltuiala in lista:
         if cheltuiala[0] == id:
