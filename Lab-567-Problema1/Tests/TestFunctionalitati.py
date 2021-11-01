@@ -24,4 +24,3 @@ def test_adunare_valoare():
     lista = adunare_valoare(5000, '16.12.2020', lista)
     assert lista == [[1, 16, 1100, '10.10.2020', 'canal'],[2, 20, 5200, '16.12.2020', 'alte cheltuieli'],[3, 16, 2000, '10.10.2020', 'intretinere'],[4, 20, 2000, '10.10.2020', 'intretinere']]
 
-

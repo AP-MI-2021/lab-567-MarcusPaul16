@@ -1,4 +1,5 @@
 from Domain.apartament import get_numar, get_data, get_suma, get_tip
+from Logic.CRUD import get_by_numar
 
 
 def stergere_toate_cheltuielile(numar, lista):
@@ -8,6 +9,8 @@ def stergere_toate_cheltuielile(numar, lista):
     :param lista: lista cu dictionare pentru fiecare apartament
     :return: returneaza lista fara chetuielile apartamentului
     '''
+    if get_by_numar(numar, lista) is False:
+        raise ValueError("Apartamentul cu numarul dat nu exista")
     return [cheltuiala for cheltuiala in lista if get_numar(cheltuiala) != numar]
 
 
@@ -82,7 +85,6 @@ def afisare_sume_lunare(lista):
             for j in range(len(lista_sume)):
                 print(f"Apartamentul {lista_sume[j][0]} : {lista_sume[j][1]} RON")
         i = i + 1
-
 
 
 

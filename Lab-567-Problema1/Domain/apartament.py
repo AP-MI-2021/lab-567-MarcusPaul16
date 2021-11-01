@@ -61,4 +61,3 @@ def to_string(apartament):
 
 
 
-

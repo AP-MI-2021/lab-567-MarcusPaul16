@@ -1,4 +1,5 @@
 from UI.console import menu
+from UI.meniu_nou import meniu_nou
 from Tests.TestAll import test_all
 
 lista = []
@@ -6,7 +7,8 @@ lista = []
 
 def main():
     test_all()
-    menu(lista)
+    meniu_nou(lista)
+
 
 
 if __name__ == '__main__':
