@@ -10,8 +10,9 @@ def print_menu():
     Daca doriti sa ordonati cheltuielile descrescator dupa suma, scrieti 5.
     Daca doriti sa afisati sumele lunare pentru fiecare apartament, scrieti 6.
     Daca doriti un UNDO, scrieti 7.
-    Daca doriti sa afisati lista, scrieti 8.
-    Daca doriti sa opriti programul, scrieti 9.
+    Daca doriti un REDO, scrieti 8.
+    Daca doriti sa afisati lista, scrieti 9.
+    Daca doriti sa opriti programul, scrieti 10.
     """
     print(optiuni)
 
@@ -66,12 +67,18 @@ def menu(lista):
                 i = i - 1
                 lista = undo_list[i]
         elif alegere == '8':
-            print(lista)
+            if i + 1 >= len(undo_list):
+                print("Nu mai puteti da REDO, ati ajuns la cea mai recenta lista")
+            else:
+                i = i + 1
+                lista = undo_list[i]
         elif alegere == '9':
+            print(lista)
+        elif alegere == '10':
             print("Programul s-a terminat")
             break
         else:
             print("Comanda inexistenta")
-        if alegere != '7' and alegere!= '8':
+        if alegere != '7' and alegere!= '8' and  alegere!='9':
             i = i + 1
             undo_list.append(lista)

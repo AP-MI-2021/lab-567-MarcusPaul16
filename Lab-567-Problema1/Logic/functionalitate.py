@@ -14,7 +14,7 @@ def stergere_toate_cheltuielile(numar, lista):
     return [cheltuiala for cheltuiala in lista if get_numar(cheltuiala) != numar]
 
 
-def adunare_valoare(valoare, data,lista):
+def adunare_valoare(valoare, data, lista):
     '''
     :param valoare: valoarea pe care o adaugam
     :param data: data cheltuielilor la care adaugam valoarea
@@ -28,6 +28,11 @@ def adunare_valoare(valoare, data,lista):
 
 
 def determinare_maxim_cheltuieli(lista):
+    '''
+    determinam maximul pentru fiecare tip de cheltuiala
+    :param lista: lista cu cheltuieli
+    :return: un dictionar, ca si chei, cele 3 tipuri de cheltuieli, respectiv valoarea maxima din fiecare tip
+    '''
     dictionar_cheltuieli = {
         'canal' : 0,
         'intretinere': 0,
@@ -40,22 +45,28 @@ def determinare_maxim_cheltuieli(lista):
 
 
 def ordonare_dupa_suma(lista):
-    for i in range(len(lista)-1):
-        for j in range(i,len(lista)):
-            if lista[i]['suma'] < lista[j]['suma']:
-                aux = lista[i]
-                lista[i] = lista[j]
-                lista[j] = aux
+    '''
+    ordoneaza lista dupa suma cheltuielii
+    :param lista: lista cu cheltuieli
+    :return: lista ordonata
+    '''
+    lista.sort(key = lambda x: x[2], reverse = True)
     return lista
 
 
 def sume_lunare(lista, numar_luna):
+    '''
+    pentru numarul lunii date, realizeaza o lista de liste, de tipul [numar_apartament, suma]
+    :param lista:
+    :param numar_luna:
+    :return:
+    '''
     lista_luna = []
-    suma = 10000*[0]
+    suma = 12000*[0]
     for cheltuiala in lista:
-        string_data = cheltuiala['data'].split('.')
+        string_data = cheltuiala[3].split('.')
         if int(string_data[1]) == numar_luna:
-            suma[cheltuiala['numar']] += cheltuiala['suma']
+            suma[cheltuiala[1]] += cheltuiala[2]
     for i in range(len(suma)):
         if suma[i]!=0:
             lista_luna.append([i,suma[i]])
@@ -63,6 +74,11 @@ def sume_lunare(lista, numar_luna):
 
 
 def afisare_sume_lunare(lista):
+    '''
+    afiseaza sumele lunare ale apartamentelor, pentru fiecare luna
+    :param lista: lista cu cheltuieli
+    :return: none
+    '''
     luni = {
         '1' : 'Ianuarie',
         '2' : 'Februarie',

@@ -2,6 +2,12 @@ from Domain.apartament import creeaza_cheltuiala, to_string, get_numar, get_id
 
 
 def get_by_numar(numar, lista):
+    '''
+    verifica daca numarul este in lista
+    :param numar: numarul apartamentului cautat
+    :param lista: lista cu cheltuieli
+    :return: true daca numarul se afla in lista, false altfel
+    '''
     for cheltuiala in lista:
         if cheltuiala[1] == numar:
             return True
@@ -9,6 +15,12 @@ def get_by_numar(numar, lista):
 
 
 def get_by_id(id, lista):
+    '''
+    verifica daca exista o cheltuiala pentru id-ul dat
+    :param id: id-ul cheltuielii
+    :param lista: lista cu cheltuieli
+    :return: true daca id-ul este gasit in lista, false altfel
+    '''
     for cheltuiala in lista:
         if cheltuiala[0] == id:
             return True
@@ -58,7 +70,7 @@ def modificare_cheltuiala(id, numar, suma, data,tip, lista):
         raise ValueError("Id-ul nu exista")
     if suma < 0:
         raise ValueError("Suma este negativa")
-    if tip != 'canal' and tip !='alte cheltuieli' and tip!=' intretinere':
+    if tip != 'canal' and tip !='alte cheltuieli' and tip!='intretinere':
         raise ValueError("Nu exista acest tip de cheltuiala")
     listanoua = []
     for cheltuiala in lista:
