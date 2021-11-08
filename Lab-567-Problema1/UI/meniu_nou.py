@@ -1,4 +1,4 @@
-from Logic.CRUD import adaugare_cheltuiala, creeaza_cheltuiala, stergere_cheltuiala
+from Logic.CRUD import adaugare_cheltuiala, creeaza_cheltuiala, stergere_cheltuiala, modificare_cheltuiala
 from Logic.functionalitate import *
 
 
@@ -7,6 +7,7 @@ Puteti da mai multe comenzi simultan, pe care le puteti separa prin ';',inclusiv
 Adaugare: add,id, numarul apartamentului, suma, data, tipul cheltuielii
 Stergere: delete,id-ul cheltuielii
 Afisare Lista: showall
+Modificarea unei cheltuielii: modificare,id,numar,suma,data,tip
 Stergerea unor cheltuieli pentru un apartament: delete_cheltuiala, numar_apartament
 Adunarea unei valori la toate cheltuielile dintr-o data citita: adunare, valoare, data
 Determinarea celei mai mari cheltuieli din fiecare tip: maxim
@@ -34,6 +35,10 @@ def meniu_nou(lista):
                     lista = adaugare_cheltuiala(int(det[1]), int(det[2]), int(det[3]), det[4],det[5], lista)
                 except IndexError as ie:
                     print(f"Eroare: {ie}")
+            elif det[0] == 'modificare':
+                undolist.append(lista)
+                redolist.clear()
+                lista = modificare_cheltuiala(int(det[1]), int(det[2]), int(det[3]), det[4], det[5], lista)
             elif det[0] == 'delete':
                 undolist.append(lista)
                 redolist.clear()
