@@ -103,4 +103,19 @@ def afisare_sume_lunare(lista):
         i = i + 1
 
 
+def undo(lista, undolist, redolist):
+    redolist.append(lista)
+    lista = undolist.pop()
+    return lista, undolist, redolist
+
+
+def redo(lista, undolist, redolist):
+    undolist.append(lista)
+    lista = redolist.pop()
+    return lista, undolist, redolist
+
+
+
+
+
 

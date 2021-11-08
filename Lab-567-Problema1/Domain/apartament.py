@@ -5,7 +5,7 @@ def creeaza_cheltuiala(id, numar, suma, data, tip):
     :param suma: float
     :param data: string
     :param tip: string
-    :return: returneaza un dictionar cu atributele date
+    :return: returneaza o lista cu atributele date
     '''
     return [id, numar,suma,data,tip]
 
