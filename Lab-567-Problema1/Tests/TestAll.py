@@ -11,3 +11,4 @@ def test_all():
     test_ordonare_suma()
     test_determinare_maxim_cheltuieli()
     test_sume_lunare()
+    test_undo_redo_scenariu()
